@@ -9,7 +9,7 @@ Route::get('/', function () {
 
 // sendgrid form
 
-Route::get('/sendgrid-form', SendgridForm::class)->name('sendgrid-form');
+Route::get('/sendgrid-form', SendgridForm::class)->name('sendgrid.form');
 
 Route::middleware([
     'auth:sanctum',

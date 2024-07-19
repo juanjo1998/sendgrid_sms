@@ -2,6 +2,8 @@
 
 namespace App\Livewire;
 
+use App\Mail\ContactFormMail;
+use Illuminate\Support\Facades\Mail;
 use Livewire\Component;
 
 class SendgridForm extends Component
@@ -20,12 +22,11 @@ class SendgridForm extends Component
     {
         $this->validate();
 
-        // Aquí puedes agregar la lógica para manejar la sumisión del formulario
-        // Por ejemplo, enviar un correo con SendGrid
+        Mail::to($this->email)->send(new ContactFormMail());
 
         session()->flash('message', 'Formulario enviado con éxito.');
 
-        // Limpiar los campos después de enviar el formulario (opcional)
+        // clean data
         $this->reset();
     }
 
