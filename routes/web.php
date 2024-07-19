@@ -1,10 +1,15 @@
 <?php
 
+use App\Livewire\SendgridForm;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
 });
+
+// sendgrid form
+
+Route::get('/sendgrid-form', SendgridForm::class)->name('sendgrid-form');
 
 Route::middleware([
     'auth:sanctum',
